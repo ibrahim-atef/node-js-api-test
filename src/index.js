@@ -1,8 +1,12 @@
- const express= require("express")
- const apiServer=express()
+const express = require("express");
+const productRouters = require('./routes/products');
 
- apiServer.get('/', function(req,res){
-    res.send("hello from express")
- })
+const apiServer = express();
 
- apiServer.listen(3000,()=> console.log("api server started"));
+apiServer.use('/products', productRouters);
+
+apiServer.get('/', function (req, res) {
+    res.send("hello from  ex");
+})
+
+apiServer.listen(3000, () => console.log("api server started"));
